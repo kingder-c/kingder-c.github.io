@@ -76,320 +76,105 @@
     <div id="container">
       <div id="main">
 
-   
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2017/08/10/说明/" title="" itemprop="url">
+  
+    <h1 itemprop="name"></h1>
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+     
+           <p itemprop="description" >一、三大组件在Three.js中，要渲染物体到网页中，我们需要3个组建：场景（scene）、相机（camera）和渲染器（renderer）。有了这三样东西，才能将物体渲染到网页中去。
+记住关建语句：有了这三样东西，我们才能够使用相机将场景渲染到网页上去。
+创建这三要素的代码如下</p>
+        
     
-      <a href="/2017/08/10/说明/" title="" itemprop="url"></a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
-		
-  <p class="article-time">
-    <time datetime="2017-08-10T07:04:36.460Z" itemprop="datePublished"> Published 2017-08-10</time>
+    <time datetime="2017-08-10T07:04:36.460Z" itemprop="datePublished">2017-08-10</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2017/08/10/点的说明/" title="" itemprop="url">
+  
+    <h1 itemprop="name"></h1>
     
-  </p>
-</header>
-    <div class="article-content">
+     
+           <p itemprop="description" >在Threejs中定义一个点在三维空间中的某一个点可以用一个坐标点来表示。一个坐标点由x,y,z三个分量构成。在three.js中，点可以在右手坐标系中表示：
+空间几何中，点可以用一个向量来表示，在Three.js中也是用一个向量来表示的，代码如下所示：1234567THREE.</p>
         
-        <h1 id="一、三大组件"><a href="#一、三大组件" class="headerlink" title="一、三大组件"></a>一、三大组件</h1><p>在Three.js中，要渲染物体到网页中，我们需要3个组建：场景（scene）、相机（camera）和渲染器（renderer）。有了这三样东西，才能将物体渲染到网页中去。</p>
-<p>记住关建语句：有了这三样东西，我们才能够使用相机将场景渲染到网页上去。</p>
-<p>创建这三要素的代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var scene = new THREE.Scene();  // 场景</div><div class="line">var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);// 透视相机</div><div class="line">var renderer = new THREE.WebGLRenderer();   // 渲染器</div><div class="line">renderer.setSize(window.innerWidth, window.innerHeight);    // 设置渲染器的大小为窗口的内宽度，也就是内容区的宽度</div><div class="line">document.body.appendChild(renderer.domElement);</div></pre></td></tr></table></figure></p>
-<h2 id="1、场景"><a href="#1、场景" class="headerlink" title="1、场景"></a>1、场景</h2><p>在Threejs中场景就只有一种，用THREE.Scene来表示，要构件一个场景也很简单，只要new一个对象就可以了，代码如下：</p>
-<p>var scene = new THREE.Scene();<br><code>var scene = new THREE.Scene();</code></p>
-<p>场景是所有物体的容器，如果要显示一个苹果，就需要将苹果对象加入场景中。</p>
-<h2 id="2、相机"><a href="#2、相机" class="headerlink" title="2、相机"></a>2、相机</h2><p>另一个组建是相机，相机决定了场景中那个角度的景色会显示出来。相机就像人的眼睛一样，人站在不同位置，抬头或者低头都能够看到不同的景色。</p>
-<p>场景只有一种，但是相机却又很多种。和现实中一样，不同的相机确定了呈相的各个方面。比如有的相机适合人像，有的相机适合风景，专业的摄影师根据实际用途不一样，选择不同的相机。对程序员来说，只要设置不同的相机参数，就能够让相机产生不一样的效果。</p>
-<p>在Threejs中有多种相机，这里介绍两种，它们是：</p>
-<p>透视相机（THREE.PerspectiveCamera）、这里我们使用一个透视相机，透视相机的参数很多，这里先不详细讲解。后面关于相机的那一章，我们会花大力气来讲。定义一个相机的代码如下所示：（已经迫不及待想看看相机的参数了，点这里）</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);</div></pre></td></tr></table></figure>
-<h2 id="3、渲染器"><a href="#3、渲染器" class="headerlink" title="3、渲染器"></a>3、渲染器</h2><p>最后一步就是设置渲染器，渲染器决定了渲染的结果应该画在页面的什么元素上面，并且以怎样的方式来绘制。这里我们定义了一个WebRenderer渲染器，代码如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var renderer = new THREE.WebGLRenderer();</div><div class="line">renderer.setSize(window.innerWidth, window.innerHeight);</div><div class="line">document.body.appendChild(renderer.domElement);</div></pre></td></tr></table></figure></p>
-<p>注意，渲染器renderer的domElement元素，表示渲染器中的画布，所有的渲染都是画在domElement上的，所以这里的appendChild表示将这个domElement挂接在body下面，这样渲染的结果就能够在页面中显示了。 </p>
-<h2 id="4、添加物体到场景中"><a href="#4、添加物体到场景中" class="headerlink" title="4、添加物体到场景中"></a>4、添加物体到场景中</h2><p>那现在，我们将一个物体添加到场景中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var geometry = new THREE.CubeGeometry(1,1,1); </div><div class="line">var material = new THREE.MeshBasicMaterial(&#123;color: 0x00ff00&#125;);</div><div class="line">var cube = new THREE.Mesh(geometry, material); </div><div class="line">scene.add(cube);</div></pre></td></tr></table></figure>
-<p>代码中出现了THREE.CubeGeometry，THREE.CubeGeometry是什么东东，他是一个几何体，几何体由什么组成，已经不是本课的主要内容了，后面的课程我们会详细的学到。不过这里你只需要知道CubeGeometry是一个正方体或者长方体，究竟是什么，由它的3个参数所决定，cubeGeometry的原型如下代码所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CubeGeometry(width, height, depth, segmentsWidth, segmentsHeight, segmentsDepth, materials, sides)</div><div class="line">width：立方体x轴的长度</div><div class="line"></div><div class="line">height：立方体y轴的长度</div><div class="line"></div><div class="line">depth：立方体z轴的深度，也就是长度</div></pre></td></tr></table></figure>
-<p>想一想大家就明白，以上3个参数就能够确定一个立方体。</p>
-<p>剩下的几个参数就要费解和复杂一些了，不过后面我们会自己来写一个立方体，到时候，你会更明白这些参数的意义，这里你可以将这些参数省略。</p>
-<h2 id="5、渲染"><a href="#5、渲染" class="headerlink" title="5、渲染"></a>5、渲染</h2><p>终于到了最后一步，这一步做完后，就可以该干嘛干嘛去了。</p>
-<p>渲染应该使用渲染器，结合相机和场景来得到结果画面。实现这个功能的函数是</p>
-<p><code>renderer.render(scene, camera);</code></p>
-<p>渲染函数的原型如下：</p>
-<p><code>render( scene, camera, renderTarget, forceClear )</code></p>
-<p>各个参数的意义是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">scene：前面定义的场景</div><div class="line"></div><div class="line">camera：前面定义的相机</div><div class="line"></div><div class="line">renderTarget：渲染的目标，默认是渲染到前面定义的render变量中</div><div class="line"></div><div class="line">forceClear：每次绘制之前都将画布的内容给清除，即使自动清除标志autoClear为false，也会清除。</div></pre></td></tr></table></figure></p>
-<h2 id="6、渲染循环"><a href="#6、渲染循环" class="headerlink" title="6、渲染循环"></a>6、渲染循环</h2><p>渲染有两种方式：实时渲染和离线渲染 。</p>
-<p>先看看离线渲染，想想《西游降魔篇》中最后的佛主，他肯定不是真的，是电脑渲染出来的，其画面质量是很高的，它是事先渲染好一帧一帧的图片，然后再把图片拼接成电影的。这就是离线渲染。如果不事先处理好一帧一帧的图片，那么电影播放得会很卡。CPU和GPU根本没有能力在播放的时候渲染出这种高质量的图片。</p>
-<p>实时渲染：就是需要不停的对画面进行渲染，即使画面中什么也没有改变，也需要重新渲染。下面就是一个渲染循环：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function render() &#123;</div><div class="line">    cube.rotation.x += 0.1;</div><div class="line">    cube.rotation.y += 0.1;</div><div class="line">    renderer.render(scene, camera);</div><div class="line">    requestAnimationFrame(render);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>其中一个重要的函数是requestAnimationFrame，这个函数就是让浏览器去执行一次参数中的函数，这样通过上面render中调用requestAnimationFrame()函数，requestAnimationFrame()函数又让rander()再执行一次，就形成了我们通常所说的游戏循环了。</p>
-<p>如不能理解游戏循环，请在这里提问。</p>
-<h1 id="场景，相机，渲染器之间的关系"><a href="#场景，相机，渲染器之间的关系" class="headerlink" title="场景，相机，渲染器之间的关系"></a>场景，相机，渲染器之间的关系</h1><p>Three.js中的场景是一个物体的容器，开发者可以将需要的角色放入场景中，例如苹果，葡萄。同时，角色自身也管理着其在场景中的位置。</p>
-<p>相机的作用就是面对场景，在场景中取一个合适的景，把它拍下来。</p>
-<p>渲染器的作用就是将相机拍摄下来的图片，放到浏览器中去显示。他们三者的关系如下图所示：</p>
-<p><img src="img/guanxi.jpg" alt="关系"></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+    <time datetime="2017-08-10T07:04:36.456Z" itemprop="datePublished">2017-08-10</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2017/08/10/线的说明/" title="" itemprop="url">
+  
+    <h1 itemprop="name"></h1>
     
-      <a href="/2017/08/10/点的说明/" title="" itemprop="url"></a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
-		
-  <p class="article-time">
-    <time datetime="2017-08-10T07:04:36.456Z" itemprop="datePublished"> Published 2017-08-10</time>
+     
+           <p itemprop="description" >1、首先，我们声明了一个几何体geometry，如下：var geometry = new THREE.Geometry();
+几何体里面有一个vertices变量，可以用来存放点。
+2、定义一种线条的材质，使用THREE.LineBasicMaterial类型来定义，它接受一个</p>
+        
     
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="在Threejs中定义一个点"><a href="#在Threejs中定义一个点" class="headerlink" title="在Threejs中定义一个点"></a>在Threejs中定义一个点</h1><p>在三维空间中的某一个点可以用一个坐标点来表示。一个坐标点由x,y,z三个分量构成。在three.js中，点可以在右手坐标系中表示：</p>
-<p>空间几何中，点可以用一个向量来表示，在Three.js中也是用一个向量来表示的，代码如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">THREE.Vector3 = function ( x, y, z ) &#123;</div><div class="line"></div><div class="line">this.x = x || 0;</div><div class="line">this.y = y || 0;</div><div class="line">this.z = z || 0;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>我们来分析这段代码：前面我们已经知道了THREE是Three.js引擎的一个全局变量。只要你想用它，就可以在任何地方用它。有点充气娃娃的意思，不需要你同意，你想用就用吧。</p>
-<p>那么THREE.Vector3呢，就是表示Vector3是定义在THREE下面的一个类。以后要用Vector3，就必须要加THREE前缀。当然Three.js的设计者，也可以不加THREE这个前缀，但是他们预见到，Three.js引擎中会有很多类型，最好给这些类型加一个前缀，以免与开发者的代码产生冲突。</p>
-<p>THREE.Vector3被赋值为一个函数。这个函数有3个参数，分别代表x坐标，y坐标和z坐标的分量。函数体内的代码将他们分别赋值给成员变量x，y，z。看看上面的代码，中间使用了一个“||”（或）运算符，就是当x=null或者undefine时，this.x的值应该取0。<br>3、点的操作</p>
-<p>在3D世界中点可以用THREE.Vector3D来表示。对应源码为/src/math/Vector3.js（注意：源码所在的位置，可能不同版本不一样，请自己搜索Vector3关键词来确定）。在您继续学习之前，你可以打开该文件浏览一下，推荐使用WebStorm，如果没有，你也可以用NotePad++。</p>
-<p>现在来看看怎么定义个点，假设有一个点x=4，y=8，z=9。你可以这样定义它：</p>
-<p><code>var point1 = new THREE.Vecotr3(4,8,9);</code></p>
-<p>另外你也可以使用set方法，代码如下：</p>
-<p><code>var point1 = new THREE.Vector3();</code></p>
-<p><code>point1.set(4,8,9);</code></p>
-<p>我们这里使用了set方法，为了以后深入学习的方便，这里将Vector3的常用方法列出如下，为了不影响文章的连贯性，我们专门列出了一个网页来介绍它。 </p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
+    <time datetime="2017-08-10T07:04:36.452Z" itemprop="datePublished">2017-08-10</time>
+  </a>
+</section>
 
 
 
 
 
 
-   
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2017/08/10/wenbgl世界/" title="" itemprop="url">
+  
+    <h1 itemprop="name"></h1>
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+     
+           <p itemprop="description" ></p>
+        
     
-      <a href="/2017/08/10/线的说明/" title="" itemprop="url"></a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
-		
-  <p class="article-time">
-    <time datetime="2017-08-10T07:04:36.452Z" itemprop="datePublished"> Published 2017-08-10</time>
+    <time datetime="2017-08-10T07:04:36.446Z" itemprop="datePublished">2017-08-10</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2017/08/10/hello-world/" title="Hello World" itemprop="url">
+  
+    <h1 itemprop="name">Hello World</h1>
     
-  </p>
-</header>
-    <div class="article-content">
+     
+           <p itemprop="description" >Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the </p>
         
-        <h2 id="1、首先，我们声明了一个几何体geometry，如下："><a href="#1、首先，我们声明了一个几何体geometry，如下：" class="headerlink" title="1、首先，我们声明了一个几何体geometry，如下："></a>1、首先，我们声明了一个几何体geometry，如下：</h2><p><code>var geometry = new THREE.Geometry();</code></p>
-<p>几何体里面有一个vertices变量，可以用来存放点。</p>
-<h2 id="2、定义一种线条的材质，使用THREE-LineBasicMaterial类型来定义，它接受一个集合作为参数，其原型如下："><a href="#2、定义一种线条的材质，使用THREE-LineBasicMaterial类型来定义，它接受一个集合作为参数，其原型如下：" class="headerlink" title="2、定义一种线条的材质，使用THREE.LineBasicMaterial类型来定义，它接受一个集合作为参数，其原型如下："></a>2、定义一种线条的材质，使用THREE.LineBasicMaterial类型来定义，它接受一个集合作为参数，其原型如下：</h2><p><code>LineBasicMaterial( parameters )</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Parameters是一个定义材质外观的对象，它包含多个属性来定义材质，这些属性是：</div><div class="line"></div><div class="line">Color：线条的颜色，用16进制来表示，默认的颜色是白色。</div><div class="line"></div><div class="line">Linewidth：线条的宽度，默认时候1个单位宽度。</div><div class="line"></div><div class="line">Linecap：线条两端的外观，默认是圆角端点，当线条较粗的时候才看得出效果，如果线条很细，那么你几乎看不出效果了。</div><div class="line"></div><div class="line">Linejoin：两个线条的连接点处的外观，默认是“round”，表示圆角。</div><div class="line"></div><div class="line">VertexColors：定义线条材质是否使用顶点颜色，这是一个boolean值。意思是，线条各部分的颜色会根据顶点的颜色来进行插值。（如果关于插值不是很明白，可以QQ问我，QQ在前言中你一定能够找到，嘿嘿，虽然没有明确写出）。</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>Fog：定义材质的颜色是否受全局雾效的影响。</p>
-</blockquote>
-<p>好了，介绍完这些参数，你可以试一试了，在课后，我们会展示不同同学的杰出作品。下面，接着上面的讲，我们这里使用了顶点颜色vertexColors: THREE.VertexColors，就是线条的颜色会根据顶点来计算。</p>
-<p><code>var material = new THREE.LineBasicMaterial( { vertexColors: THREE.VertexColors } );</code></p>
-<h2 id="3、接下来，定义两种颜色，分别表示线条两个端点的颜色，如下所示："><a href="#3、接下来，定义两种颜色，分别表示线条两个端点的颜色，如下所示：" class="headerlink" title="3、接下来，定义两种颜色，分别表示线条两个端点的颜色，如下所示："></a>3、接下来，定义两种颜色，分别表示线条两个端点的颜色，如下所示：</h2><p><code>var color1 = new THREE.Color( 0x444444 ),</code></p>
-<p><code>color2 = new THREE.Color( 0xFF0000 );</code></p>
-<h2 id="4、定义2个顶点的位置，并放到geometry中，代码如下："><a href="#4、定义2个顶点的位置，并放到geometry中，代码如下：" class="headerlink" title="4、定义2个顶点的位置，并放到geometry中，代码如下："></a>4、定义2个顶点的位置，并放到geometry中，代码如下：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var p1 = new THREE.Vector3( -100, 0, 100 );</div><div class="line"></div><div class="line">var p2 = new THREE.Vector3( 100, 0, -100 );</div><div class="line"></div><div class="line">geometry.vertices.push(p1);</div><div class="line"></div><div class="line">geometry.vertices.push(p2);</div></pre></td></tr></table></figure>
-<h2 id="5、为4中定义的2个顶点，设置不同的颜色，代码如下所示："><a href="#5、为4中定义的2个顶点，设置不同的颜色，代码如下所示：" class="headerlink" title="5、为4中定义的2个顶点，设置不同的颜色，代码如下所示："></a>5、为4中定义的2个顶点，设置不同的颜色，代码如下所示：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">geometry.colors.push( color1, color2 );</div></pre></td></tr></table></figure>
-<p>geometry中colors表示顶点的颜色，必须材质中vertexColors等于THREE.VertexColors 时，颜色才有效，如果vertexColors等于THREE.NoColors时，颜色就没有效果了。那么就会去取材质中color的值，这个很重要，大家一定记住。</p>
-<h2 id="6、定义一条线"><a href="#6、定义一条线" class="headerlink" title="6、定义一条线"></a>6、定义一条线</h2><p>定义线条，使用THREE.Line类，代码如下所示：</p>
-<p><code>var line = new THREE.Line( geometry, material, THREE.LinePieces );</code></p>
-<p>第一个参数是几何体geometry，里面包含了2个顶点和顶点的颜色。第二个参数是线条的材质，或者是线条的属性，表示线条以哪种方式取色。第三个参数是一组点的连接方式，我们会在后面详细讲解。</p>
-<p>然后，将这条线加入到场景中，代码如下：</p>
-<p><code>scene.add(line);</code></p>
-<p>这样，场景中就会出现刚才的那条线段了。 </p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/08/10/wenbgl世界/" title="" itemprop="url"></a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
-		
-  <p class="article-time">
-    <time datetime="2017-08-10T07:04:36.446Z" itemprop="datePublished"> Published 2017-08-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/08/10/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
-		
-  <p class="article-time">
-    <time datetime="2017-08-10T03:55:13.049Z" itemprop="datePublished"> Published 2017-08-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
+    <time datetime="2017-08-10T03:55:13.049Z" itemprop="datePublished">2017-08-10</time>
+  </a>
+</section>
 
 
 
@@ -417,13 +202,25 @@
         
           <li>
             
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">GitHub</a>
             
           </li>
         
           <li>
             
-            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            	<a href="http://www.cnblogs.com/zj-kingder/" target="_blank" title="欢迎来到Kingder的博客园希望在这里可以和大家一起学习共同进步">博客园</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.csdn.net/qq_24065733" target="_blank" title="欢迎来到Kingder的CSDN博客">CSDN博客</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/u/c37ba8d7eebf" target="_blank" title="简书">简书</a>
             
           </li>
         
